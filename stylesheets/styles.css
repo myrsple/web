@@ -4,6 +4,7 @@
   --bg-color: #F4F4F4;
   --link-color: #0066cc;
   --link-hover-color: #0077ee;
+  --icon-color: #666666;
 }
 
 :root[data-theme="dark"] {
@@ -12,6 +13,7 @@
   --bg-color: #111;
   --link-color: #5bd;
   --link-hover-color: #7cf;
+  --icon-color: var(--text-color);
 }
 
 body {
@@ -128,6 +130,24 @@ header {
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
+.profile-image {
+  width: 200px;
+  border-radius: 50%;
+  margin: 20px 0;
+}
+
+.bio {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0 0 20px;
+  transition: color 0.7s ease;
+}
+
+header p {
+  margin: 0 0 20px;
+}
+
 strong {
   color:#222;
   font-weight:500;
@@ -137,6 +157,7 @@ section {
   width:500px;
   float:right;
   padding-bottom:50px;
+  position: relative;
 }
 
 small {
@@ -221,6 +242,8 @@ footer {
   cursor: pointer;
   user-select: none;
   margin-bottom: 20px;
+  opacity: 1;
+  transition: opacity 0.7s ease;
 }
 
 .theme-switch:hover {
@@ -228,10 +251,10 @@ footer {
 }
 
 .theme-switch svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   margin-right: 5px;
-  fill: var(--text-color);
+  fill: var(--icon-color);
   transition: fill 0.7s ease;
 }
 
@@ -304,6 +327,7 @@ footer {
     rgba(255, 0, 255, 0) 70%
   );
   animation: floatingCircle1 25s ease-in-out infinite;
+  mix-blend-mode: soft-light;
 }
 
 .floating-circles::after {
@@ -311,11 +335,12 @@ footer {
   width: 800px;
   height: 800px;
   background: radial-gradient(circle at center, 
-    rgba(0, 180, 255, 0.15) 0%,
-    rgba(0, 140, 255, 0.15) 45%,
-    rgba(0, 180, 255, 0) 70%
+    rgba(0, 255, 255, 0.18) 0%,
+    rgba(0, 220, 255, 0.18) 45%,
+    rgba(0, 255, 255, 0) 70%
   );
   animation: floatingCircle2 30s ease-in-out infinite;
+  mix-blend-mode: soft-light;
 }
 
 :root[data-theme="dark"] .floating-circles::before {
@@ -324,14 +349,16 @@ footer {
     rgba(255, 0, 128, 0.11) 45%,
     rgba(255, 0, 255, 0) 70%
   );
+  mix-blend-mode: soft-light;
 }
 
 :root[data-theme="dark"] .floating-circles::after {
   background: radial-gradient(circle at center, 
     rgba(0, 255, 255, 0.11) 0%,
-    rgba(0, 200, 255, 0.11) 45%,
+    rgba(40, 230, 255, 0.11) 45%,
     rgba(0, 255, 255, 0) 70%
   );
+  mix-blend-mode: soft-light;
 }
 
 :root[data-theme="dark"] .floating-circles {
