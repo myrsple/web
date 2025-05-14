@@ -1,13 +1,13 @@
 body {
-  background-color: #fff;
+  background-color: #151515;
   padding:50px;
   font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color:#595959;
+  color:#c9c7c7;
   font-weight:400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
+  color:#d7d2d2;
   margin:0 0 20px;
 }
 
@@ -25,22 +25,22 @@ h1 {
 }
 
 h2 {
-  color:#393939;
+  color:#d7d2d2;
   font-weight: 500;
 }
 
 h3, h4, h5, h6 {
-  color:#494949;
+  color:#d7d2d2;
   font-weight: 500;
 }
 
 a {
-  color:#39c;
+  color:rgb(90, 188, 226);
   text-decoration:none;
 }
 
 a:hover {
-  color:#069;
+  color:rgb(255, 255, 255);
 }
 
 a small {
