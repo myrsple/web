@@ -3,61 +3,77 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Tomas Kovarik: Portfolio</title>
+    <title>Tomas Kovarik: About</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
   <body>
+    <div class="floating-circles"></div>
     <div class="wrapper">
       <header>
         <h1>Tomas Kovarik</h1>
         <img src="images/profile.jpeg" alt="Tomas Kovarik" class="profile-image" style="width: 200px; border-radius: 50%; margin: 20px 0;">
-        <p><a href="https://www.linkedin.com/in/tomas-kovarik">LinkedIn</a></p>
-        <p><a href="http://t.me/tomasrybka">Telegram</a></p>
+        <p><a href="https://www.linkedin.com/in/tomas-kovarik">LinkedIn</a> · <a href="http://t.me/tomasrybka">Telegram</a></p>
       </header>
       <section>
         <h1>Portfolio</h1>
 
-        <h2>Current & recent clients</h2>
+        <h2>Current & recent work</h2>
         <ul>
           <li>Content designer at <a href="https://ackee.xyz">Ackee Blockchain Security</a> (2025-)</li>
           <li>Marketing manager at <a href="https://confirmo.net">Confirmo</a> (2023-2025)</li>
           <li>AI consultant at <a href="https://www.ibm.com">IBM</a> (2022-2023)</li>
         </ul>
 
-        <h2>What I do best</h2>
+        <h2>I'm best at</h2>
         <ul>
           <li>Content design & strategy</li>
           <li>Social media management</li>
           <li>Chatbot development</li>
         </ul>
 
-        <h2>Projects I'm proud of</h2>
+        <h2>I'm proud of</h2>
         <ul>
           <li><a href="https://x.com/wakehacker_ai">wakehacker</a></li>
-          <li>Creating and maintaining <a href="https://azvcr.cz">azvcr.cz</a></li>
+          <li>Having created and now maintaining <a href="https://azvcr.cz">azvcr.cz</a></li>
           <li>Writing and editing for <a href="https://swarmmag.com">SWARM MAG</a></li>
-          <li>10+ years of professional experience in linguistic work</li>
+          <li>Keeping the human touch in AI-assisted workflows</li>
+          <li>My 10+ years of translating, editing and copywriting</li>
         </ul>
         <p class="view"><a href="projects.html">See details →</a></p>
 
-        <h2>Education</h2>
+        <h2>Outside of work, I</h2>
         <ul>
-          <li>English Studies (BA) & New Media Studies (MA), Charles University</li>
+          <li>Play bass guitar in <a href="https://open.spotify.com/artist/1vVcWrAI5GcT8A2c9KZS2j">Island Mint</a></li>
+          <li>Write poetry; read some <a href="https://1022.me">here</a> </li>
+          <li>Constantly learn new stuff (currently mostly AI)</li>
+        </ul>
+
+        <h2>I've formally studied</h2>
+        <ul>
+          <li>New Media (MA) at the Faculty of Arts, Charles University</li>
+          <li>English Studies (BA) at the Faculty of Arts, Charles University</li>
           <li>Google Creative Skills for Innovation: Design Thinking</li>
         </ul>
       </section>
       <footer>
-        <p class="view"><a href="https://github.com/myrsple/web">View the project on GitHub <small>myrsple/web</small></a></p>
+        <div class="theme-switch" onclick="toggleTheme()">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+          </svg>
+          Toggle theme
+        </div>
+        <p class="view"><a href="https://github.com/myrsple/web">View the Project on GitHub <small>myrsple/web</small></a></p>
         <p>Maintained by <a href="https://github.com/myrsple">Tomas Kovarik</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
+    <script src="javascripts/theme.js"></script>
   </body>
 </html>
