@@ -364,3 +364,30 @@ footer {
 :root[data-theme="dark"] .floating-circles {
   /* Removing the white circle gradient */
 }
+
+/* Laptop screens */
+@media screen and (min-width: 961px) and (max-width: 1366px) {
+  header h1 {
+    margin: 0 0 10px;
+  }
+  
+  header p {
+    margin: 0 0 10px;
+  }
+  
+  .profile-image {
+    margin: 10px 0;
+  }
+  
+  .bio {
+    margin: 0 0 10px;
+  }
+  
+  .theme-switch {
+    margin-bottom: 10px;
+  }
+
+  footer p {
+    margin: 0 0 10px;
+  }
+}
