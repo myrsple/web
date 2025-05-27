@@ -272,28 +272,6 @@ footer {
   }
 }
 
-@keyframes fadeInRed {
-  0% {
-    opacity: 0;
-    transform: translate(0%, 0%) scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0%, 0%) scale(1);
-  }
-}
-
-@keyframes fadeInBlue {
-  0% {
-    opacity: 0;
-    transform: translate(80%, 80%) scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(80%, 80%) scale(1);
-  }
-}
-
 .floating-circles::before, 
 .floating-circles::after,
 .floating-circles {
@@ -318,12 +296,8 @@ footer {
     rgba(139, 0, 0, 0.2) 45%,
     rgba(220, 20, 60, 0) 70%
   );
-  animation: 
-    fadeInRed 1.5s ease-out,
-    floatingCircle1 20s ease-in-out 1.5s infinite;
+  animation: floatingCircle1 20s ease-in-out infinite;
   mix-blend-mode: soft-light;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 .floating-circles::after {
@@ -335,12 +309,8 @@ footer {
     rgba(0, 0, 255, 0.18) 45%,
     rgba(0, 0, 255, 0) 70%
   );
-  animation: 
-    fadeInBlue 1.5s ease-out 0.3s,
-    floatingCircle2 30s ease-in-out 1.8s infinite;
+  animation: floatingCircle2 30s ease-in-out infinite;
   mix-blend-mode: soft-light;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 /* White overlay circle */
@@ -398,6 +368,10 @@ summary {
 
 summary:hover {
   color: #7CB3FF;
+}
+
+details[open] > summary {
+  font-weight: 500;
 }
 
 details > p {
