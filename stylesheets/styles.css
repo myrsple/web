@@ -23,6 +23,7 @@ h1, h2, h3 {
 h1 {
   font-size: 28px;
   font-weight: 500;
+  margin-bottom: 0;
 }
 
 h2 {
@@ -123,6 +124,14 @@ header {
   margin: 0 0 20px;
 }
 
+.bio b {
+  color: #fff;
+}
+
+.bio .location {
+  color: #b7b7b7;
+}
+
 header p {
   margin: 0 0 20px;
 }
@@ -150,7 +159,7 @@ hr {
   margin: 0 0 20px;
 }
 
-footer {
+footer { 
   width: 270px;
   float: left;
   position: fixed;
@@ -219,41 +228,38 @@ footer {
 }
 
 @keyframes floatingCircle1 {
-  0% {
-    transform: translate(0%, 0%);
+  0%, 100% {
+    transform: translate(15%, 15%);
   }
   20% {
-    transform: translate(80%, 20%);
+    transform: translate(75%, 25%);
   }
   40% {
-    transform: translate(70%, 70%);
+    transform: translate(25%, 65%);
   }
   60% {
-    transform: translate(10%, 80%);
+    transform: translate(85%, 45%);
   }
   80% {
-    transform: translate(50%, 30%);
-  }
-  100% {
-    transform: translate(0%, 0%);
+    transform: translate(45%, 75%);
   }
 }
 
 @keyframes floatingCircle2 {
-  0% {
-    transform: translate(80%, 80%);
+  0%, 100% {
+    transform: translate(70%, 10%);
   }
-  25% {
-    transform: translate(20%, 60%);
+  20% {
+    transform: translate(20%, 70%);
   }
-  50% {
-    transform: translate(50%, 10%);
+  40% {
+    transform: translate(80%, 55%);
   }
-  75% {
-    transform: translate(70%, 40%);
+  60% {
+    transform: translate(10%, 35%);
   }
-  100% {
-    transform: translate(80%, 80%);
+  80% {
+    transform: translate(65%, 80%);
   }
 }
 
@@ -272,6 +278,15 @@ footer {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .floating-circles::before, 
 .floating-circles::after,
 .floating-circles {
@@ -281,6 +296,8 @@ footer {
   z-index: -1;
   pointer-events: none;
   filter: blur(40px);
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
 }
 
 .floating-circles {
@@ -289,15 +306,18 @@ footer {
 
 .floating-circles::before {
   content: '';
-  width: 600px;
-  height: 600px;
+  width: 420px;
+  height: 420px;
   background: radial-gradient(circle at center, 
-    rgba(220, 20, 60, 0.2) 0%,
-    rgba(139, 0, 0, 0.2) 45%,
-    rgba(220, 20, 60, 0) 70%
+    rgba(255, 0, 255, 0.17) 0%,
+    rgba(255, 0, 255, 0.17) 45%,
+    rgba(255, 0, 255, 0) 70%
   );
-  animation: floatingCircle1 20s ease-in-out infinite;
+  animation: 
+    fadeIn 1.5s ease-out forwards,
+    floatingCircle1 26s cubic-bezier(0.45, 0, 0.55, 1) infinite 0.8s;
   mix-blend-mode: soft-light;
+  transform: translate(15%, 15%);
 }
 
 .floating-circles::after {
@@ -309,8 +329,11 @@ footer {
     rgba(0, 0, 255, 0.18) 45%,
     rgba(0, 0, 255, 0) 70%
   );
-  animation: floatingCircle2 30s ease-in-out infinite;
+  animation: 
+    fadeIn 1.5s ease-out forwards,
+    floatingCircle2 30s cubic-bezier(0.45, 0, 0.55, 1) infinite 0.8s;
   mix-blend-mode: soft-light;
+  transform: translate(70%, 10%);
 }
 
 /* White overlay circle */
@@ -353,6 +376,12 @@ footer {
 
   footer p {
     font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 1300px) and (max-width: 1400px) {
+  .profile-image {
+    width: 170px;  /* 15% smaller than original 200px */
   }
 }
 
@@ -419,4 +448,18 @@ details > ul {
 
 .help-section p:nth-child(2) {
   margin-bottom: 15px;
+}
+
+.help-section p {
+  color: #fff;
+}
+
+.help-section a {
+  color: #4F96FF; /* Ensure links maintain their color */
+}
+
+@media screen and (max-width: 1439px) {
+  .location {
+    display: none;
+  }
 }
