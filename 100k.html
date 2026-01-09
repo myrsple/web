@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>SEO audit 100kolektiv.cz</title>
+
+    <meta name="description" content="SEO audit webu 100kolektiv.cz: shrnutí kritických problémů, přehled stránek, problematické URL a doporučené kroky ke zlepšení indexace.">
+    <meta name="keywords" content="SEO audit, technické SEO, indexace, meta description, lazy-loading, WordPress, strukturovaná data, 100kolektiv">
+    <meta name="author" content="Tomas Kovarik">
+    <meta property="og:title" content="SEO Audit: 100kolektiv.cz">
+    <meta property="og:description" content="Shrnutí zjištění a doporučených kroků pro zlepšení indexace webu 100kolektiv.cz ve vyhledávačích.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="images/profile.jpeg">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="133124d4-8f66-4597-974e-6a4ad49366c3"></script>
+
+    <style>
+      /* Override layout to match drawetc.html (no sidebar header, content-only page) */
+      .wrapper {
+        width: 900px;
+        margin: 0 auto;
+      }
+
+      .content {
+        width: 100%;
+        padding: 50px 0;
+      }
+
+      @media print, screen and (max-width: 960px) {
+        .wrapper {
+          width: auto;
+          margin: 0;
+          padding: 0 20px;
+        }
+      }
+
+      @media print, screen and (max-width: 720px) {
+        .wrapper {
+          padding: 0 15px;
+        }
+      }
+
+      /* Page-local readability fixes for dark theme */
+      strong { color: #fff; font-weight: 600; }
+      th { color: #fff; }
+      th, td { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+      table { font-size: 13px; }
+
+      /* Image spacing: equal padding above and below, only on this page */
+      .image-item {
+        margin: 30px 0;
+      }
+
+      .image-item img {
+        display: block;
+      }
+
+      /* Match drawetc: remove background gradients for this page */
+      .floating-circles {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-circles"></div>
+    <div class="wrapper">
+      <div class="content">
+        <p><a href="index.html">← domů</a></p>
+        <br>
+
+        <h1>SEO audit 100kolektiv.cz</h1></br>
+        <p>SEO nastavení webu 100kolektiv.cz vyhledavačům komplikuje indexaci a zobrazování i při relevantních uživatelských vyhledáváních. Na Google výsledcích se zobrazuje minimum stránek, a na nich se renderuje nežádoucí obsah.</p>
+        <p>Příčin je víc: web chronologicky dříve zobrazuje placeholdery obrázků než samotné obrázky, stránkám chybí meta popisky, web má špatně nastavený jazykový tag (en-US místo cs-CZ), a na webu jsou duplikované stránky s URLs "-copy", "-copy-copy".</p>
+        <hr class="solid">
+        <div class="image-item">
+            <p><em>generický dotaz na web</em></p>
+            <img src="images/100k-serp.png" alt="100k serp"></img>
+          </div>
+
+        </br>
+        <h2>Priority</h2>
+        <p><strong>1. Google neindexuje obrázky.</strong> Kromě loga všechny obrázky na webu používají <code>base64</code> placeholder v atributu <code>src</code> a skutečná URL je až v <code>data-src</code>. Zjednodušeně řečeno: obrázky se zobrazí lidským návštěvníkům v prohlížeči, ale Google si jejich URLs nedokáže načíst a ukazovat je ve výsledcích, protože pro zobrazení obrázku využívá <code>src</code>.</p><p>Problém se týká celého webu a příčinou je pravděpodobně šablona nebo editor Gridder, které to dělají jako formu lazy loadingu (načítání obrázků až ve chvíli, kdy na ně uživatel doscrolluje pro zrychlení načítání celé stránky) – vylučovací metodou tak soudím i podle toho, že Google zobrazuje logo, což je asset, který mu nemusí poskytovat šablona nebo editor stránky. V no-code nastavení šablony ani Gridderu jsem nenašel způsob, jak toto chování na obsahových stránkách změnit.</p>
+    </br>
+        <p><em>kód jednoho renderovaného obrázku</em></p>
+        <pre><code>&lt;img class="lay-image-responsive setsizes"
+  src="data:image/png;base64,R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw=="
+  data-src="https://www.100kolektiv.cz/wp-content/uploads/2025/10/BYL-VIZUALIZACE-INSTA-A-min_hor-265x150.jpg"
+  data-srcset="https://www.100kolektiv.cz/wp-content/uploads/2025/10/BYL-VIZUALIZACE-INSTA-A-min_hor-265x150.jpg ... &lt;/img></code></pre>
+  
+</br>
+<p><em>výsledky Google images</em></p>
+  <div class="image-item">
+    <img src="images/100k-serp3.png" alt="100k serp"></img>
+  </div></br>
+        <p><strong>2. Chybí meta popisy.</strong> Jednotlivé stránky nemají vyplněný meta description, což je text do 160 znaků, který se zobrazuje ve výsledcích vyhledavačů. Google proto buď zobrazí „Popis není k dispozici", nebo si vybere náhodný text ze stránky, např. menu. To snižuje zajímavost webu pro lidské návštěvníky a nevyužívá klíčová slova pro organické zvýšení návštěvnosti. </p><p>Tento problém jde snadno napravit vyplněním polí v Rank Math SEO pluginu na každé stránce. Vyhledavač také preferuje, když H1 a <code>Title</code> jsou stejná hodnota. Meta popisky jsou easy win pro vylepšení vyhledatelnosti bez přidávání nového obsahu pro zachycování klíčových slov na obsahových stránkách. Best practice je tyto hodnoty vyplnit před publikací nové stránky, aby vyhledavače rovnou zaindexovaly požadovaný obsah a nebylo nutné toto měnit a monitorovat později.</p>
+        <p><em>jak se stránka zobrazuje na google</em></p>
+        <div class="image-item">
+            <img src="images/100k-serp2.png" alt="100k serp"></img>
+          </div>
+          <p><em>jak meta popisky upravit (pole <code>description</code>)</em></p>
+        <div class="image-item">
+            <img src="images/100k-meta.png" alt="100k serp"></img>
+          </div>
+        <p><strong>3. Chybí H1 nadpisy.</strong> Většina stránek nemá hlavní nadpis H1. Ten je pro vyhledávače klíčový signál o tématu stránky a bez něj si smysl stránky musí domýšlet na základě až následujícího obsahu. Níže uvedený obrázek ilustruje hierarchii obsahu při signalizování vyhledavačům. H1 by měl být na každé stránce, ale nemusí být nutně zobrazen uživatelům. Toho jde dosáhnout v kódu (např. nastavením css <code>display: none;</code>), případně v některých šablonách.</p> 
+        <p><em>strukturování obsahových stránek</em></p>
+        <img src="images/image.png" alt="SEO content structure diagram"></br>
+        <p><strong>4. Špatný jazykový tag.</strong> Web deklaruje jazyk jako en-US, přestože obsah je česky. To Google mate při určování relevance pro české dotazy. V nastavení WordPressu jde upravit v Settings → General → Site Language. Správné nastavení vyhledavači pomáhá správně určit cílovou skupinu webu.</p>
+        <p><strong>5. Problematické URL adresy.</strong> Tři stránky mají URL s příponami „-copy" nebo „-copy-copy" (např. bytovy-dum-louka-copy-copy), přičemž obsahují úplně jiný projekt (Náměstí Nový Lískovec). Matoucí jak pro vyhledavače, tak pro návštěvníky.</p>
+        <p><strong>6. Chybí strukturovaná data.</strong> Žádná stránka neobsahuje Schema.org markup. Pro architektonické studio by bylo vhodné přidat minimálně Organization schema a pro jednotlivé projekty CreativeWork. Přímo pro toto existují WP pluginy. Vyhledavači to poskytuje více kontextu o webu při rozhodování, zda jej zobrazit na potenciálně relevantní uživatelské vyhledávání.</p>
+        <p><strong>7. Obrázky nemají alt texty.</strong> Aktuálně existují pouze 2 unikátní hodnoty alt textů na webu se stovkami obrázků. Každý obrázek by měl mít popisný alt text, např. „Vizualizace bytového domu Louka – pohled z ulice". Menší priorita, ale alt texty také pomáhají vyhledavačům pochopit, co na obrázku je, a tedy zda jej zobrazit při potenciálně relevantním uživatelském vyhledávání.</p>
+
+        <h2>Přehled stránek</h2>
+        <p>Stránky seřazené podle závažnosti problémů (vyšší skóre = více problémů). Celowebové úpravy zahrnují výše uvedené body.</p>
+
+        <table>
+            <thead>
+              <tr>
+                <th>Stránka</th>
+                <th>H1</th>
+                <th>Skóre</th>
+                <th>Akce</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>About – MBP – 2</td>
+                <td>✗</td>
+                <td>13</td>
+                <td>Smazat nebo 301 redirect na /about/ (duplicitní stránka)</td>
+              </tr>
+              <tr>
+                <td>Úvodní stránka</td>
+                <td>✗</td>
+                <td>10</td>
+                <td>Přidat H1 (může být skrytý v CSS)</td>
+              </tr>
+              <tr>
+                <td>About</td>
+                <td>✓</td>
+                <td>9</td>
+                <td>Pouze celowebové opravy</td>
+              </tr>
+              <tr>
+                <td>Lab</td>
+                <td>✗</td>
+                <td>9</td>
+                <td>Přidat H1</td>
+              </tr>
+              <tr>
+                <td>TOP_10 EMERGING ARCHITECTS</td>
+                <td>✓</td>
+                <td>9</td>
+                <td>Zvážit přejmenování URL (top10 → top-10-emerging-architects)</td>
+              </tr>
+              <tr>
+                <td>Projekty</td>
+                <td>✗</td>
+                <td>8</td>
+                <td>Přidat H1</td>
+              </tr>
+              <tr>
+                <td>TEXT_FROM SELF-ISOLATION...</td>
+                <td>✓</td>
+                <td>8</td>
+                <td>Pouze celowebové opravy</td>
+              </tr>
+              <tr>
+                <td>Lab (kategorie)</td>
+                <td>✗</td>
+                <td>7</td>
+                <td>Přidat H1, zvážit sloučení s /lab/</td>
+              </tr>
+              <tr>
+                <td>Work (kategorie)</td>
+                <td>✗</td>
+                <td>7</td>
+                <td>Přidat H1</td>
+              </tr>
+              <tr>
+                <td>Náměstí – Nový Lískovec</td>
+                <td>✓</td>
+                <td>7</td>
+                <td>Nová URL + 301 redirect z bytovy-dum-louka-copy-copy</td>
+              </tr>
+              <tr>
+                <td>Galerie Cti u Koruny</td>
+                <td>✓</td>
+                <td>6</td>
+                <td>Nová URL + 301 redirect z bytovy-dum-louka-copy</td>
+              </tr>
+              <tr>
+                <td>Bytový dům Louka</td>
+                <td>✓</td>
+                <td>5</td>
+                <td>Pouze celowebové opravy</td>
+              </tr>
+              <tr>
+                <td>Sídliště Čs. odbojářů Chodov</td>
+                <td>✓</td>
+                <td>5</td>
+                <td>Pouze celowebové opravy</td>
+              </tr>
+              <tr>
+                <td>Červenáček – ZŠ Řevnice</td>
+                <td>✓</td>
+                <td>5</td>
+                <td>Pouze celowebové opravy</td>
+              </tr>
+              <tr>
+                <td>Revitalizace ZŠ Březno</td>
+                <td>✓</td>
+                <td>5</td>
+                <td>Pouze celowebové opravy</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr class="solid">
+        
+        <h2>Next steps v optimizaci vyhledatelnosti</h2>
+<p>Pro primárně vizuální web je správné indexování obrázků klíčové. Je ale možné, že způsob renderování obrázků nepůjde změnit bez zásahu do kódu šablony vývojářem webu, případně přechodem na jinou šablonu.</p>
+<p>Po iteracích změn také doporučuji stránku napojit na Google Search Console, nahrát tam sitemapu (pro usnadnění crawlování vyhledavačem), a upravované stránky aktivně zadávat k reindexaci pro rychlejší zobrazování změn na Google výsledcích. Google Search Console také poskytuje data k měření efektivnosti zásahů do SEO parametrů.</p>
+<p>Pro sdílení obsahových stránek na sociálních sítích a chatových appkách nejsou definované náhledové obrázky, což může vést buď k absenci obrázku u odkazu, nebo vytažení náhodného ze stránky – typicky loga (s průhledným pozadím a v nevhodném formátu). Vyplnění hodnot zajistí, že sdílené odkazy budou obsahovat požadovaný náhledový obrázek a text, což pomáhá s prokliky na web. Jde upravit na jednotlivých stránkách skrz Rank Math SEO plugin dle screenshotu níže:</p>
+<div class="image-item">
+    <img src="images/100k-og.png" alt="100k serp"></img>
+  </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 50px; padding-top: 50px;">
+        <p><a href="https://kovarik.xyz">kovarik.xyz</a></p>
+      </div>
+     </div>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
