@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>SEO Audit – ROAR Architekti (roar.sk)</title>
+
+    <meta name="description" content="SEO audit pro ROAR Architekti (roar.sk): technické problémy, metadata, sémantika, indexovatelnost, výkon a doporučené akční kroky.">
+    <meta name="keywords" content="SEO audit, technické SEO, metadata, indexace, sitemapa, strukturovaná data, AI discoverability, ROAR architekti, roar.sk">
+    <meta name="author" content="Tomas Kovarik">
+    <meta property="og:title" content="SEO Audit: ROAR Architekti (roar.sk)">
+    <meta property="og:description" content="Shrnutí zjištění a doporučených kroků pro zlepšení vyhledatelnosti webu ROAR architekti (roar.sk).">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="images/profile.jpeg">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="133124d4-8f66-4597-974e-6a4ad49366c3"></script>
+
+    <!-- Override layout to match 100k.html (no sidebar header, content-only page) -->
+    <style>
+      .wrapper {
+        width: 900px;
+        margin: 0 auto;
+      }
+
+      .content {
+        width: 100%;
+        padding: 50px 0;
+      }
+
+      @media print, screen and (max-width: 960px) {
+        .wrapper {
+          width: auto;
+          margin: 0;
+          padding: 0 20px;
+        }
+      }
+
+      @media print, screen and (max-width: 720px) {
+        .wrapper {
+          padding: 0 15px;
+        }
+      }
+
+      /* Page-local readability fixes for dark theme */
+      strong { color: #fff; font-weight: 600; }
+      th { color: #fff; }
+      th, td { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+      table { font-size: 13px; }
+
+      /* Match 100k: consistent image spacing on this page */
+      .image-item {
+        margin: 30px 0;
+      }
+
+      .image-item img {
+        display: block;
+      }
+
+      /* Match 100k: remove background gradients for this page */
+      .floating-circles {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-circles"></div>
+    <div class="wrapper">
+      <div class="content">
+        <p><a href="index.html">← domů</a></p>
+        <br>
+
+        <h1>SEO Audit</h1>
+        <p><strong>ROAR Architekti – roar.sk</strong></p>
+        <div class="image-item">
+          <img src="images/roar-logo.webp" alt="ROAR Architekti logo">
+        </div>
+
+      <hr />
+
+      <h2>Intro</h2>
+      <p>
+        Web ROAR architekti má silnou vizuální stránku a kvalitní obsah na úrovni jednotlivých projektů, ale technický dluh
+        a nevyužité příležitosti snižují performance ve vyhledavačích
+      </p>
+
+      <h2>1. Základní technické problémy</h2>
+
+      <h3>1.1 Stará 404 URL (zobrazovaná Googlem)</h3>
+      <p>
+        Zřejmá migrace URL struktury zanechala odkazy, které Google stále indexuje. Uživatelé, kteří kliknou na tyto výsledky
+        vyhledávání, narazí na 404s:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Legacy URL (404)</th>
+            <th>Pravděpodobná správná stránka</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/portfolio-item/rd-pal/</code></td>
+            <td>Neznámý</td>
+          </tr>
+          <tr>
+            <td><code>/portfolio-item/dva-dvojdomy/</code></td>
+            <td><code>/projekty/rd-svaty-jur/</code> (ověřit)</td>
+          </tr>
+          <tr>
+            <td><code>/portfolio-item/nieco-2/</code></td>
+            <td>Neznámý</td>
+          </tr>
+          <tr>
+            <td><code>/portfolio-item/gbc-v/</code></td>
+            <td><code>/projekty/gbc/</code></td>
+          </tr>
+          <tr>
+            <td><code>/portfolio-item/bjorn/</code></td>
+            <td>Neznámý</td>
+          </tr>
+          <tr>
+            <td><code>/portfolio-item/mdvd/</code></td>
+            <td>Neznámý</td>
+          </tr>
+          <tr>
+            <td><code>/portfolio-item/radovky-stupava/</code></td>
+            <td><code>/projekty/radovky-stupava/</code></td>
+          </tr>
+          <tr>
+            <td><code>/portfolio-item/mb/</code></td>
+            <td>Neznámý</td>
+          </tr>
+          <tr>
+            <td><code>/portfolio-category/architektura/</code></td>
+            <td><code>/projekty/</code></td>
+          </tr>
+          <tr>
+            <td><code>/kontakt/</code></td>
+            <td><code>/studio/</code> (kontaktní info je nyní zde)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        To snižuje hodnotu odkazů, zhoršuje UX a plýtvá čas crawlerů. Pro každého jsou tyto stránky slepá ulička.
+      </p>
+      <p>
+        Můžete to řešit následovně. Pokud je obsah již jinde na správných stránkách, přesměrovacím pluginem nastavte
+        redirecty, a v Google Search Console zabraňte dalšímu indexování těchto stránek.
+      </p>
+      <p>
+        Na Wordpress existují redirection pluginy pro přesměrování nefunkčních URLs na současné ekvivalenty. Pro URLs bez
+        jasné shody směrujte na <code>/projekty/</code>, ať crawlery a uživatelé nekončí na 404 stránce – tyto situace
+        významně znehodnocují vaši pozici v očích vyhledavačů a lidem to také život neusnadňuje.
+      </p>
+
+      <h3>1.2 URLs neodpovídají obsahu</h3>
+      <p>
+        Tři projektové stránky zobrazují obsah, který neodpovídá jejich URL, pravděpodobně jako důsledek kopírování
+        WordPress příspěvků bez aktualizace URLs:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>URL</th>
+            <th>Zobrazuje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/projekty/orebro/</code></td>
+            <td>Projekt s názvem „trae"</td>
+          </tr>
+          <tr>
+            <td><code>/projekty/int-suna-2/</code></td>
+            <td>DOM V ZÁHRADE</td>
+          </tr>
+          <tr>
+            <td><code>/projekty/int-ruzova-dolina/</code></td>
+            <td>CENTRUM VEREJNÝCH SLUŽIEB VALALIKY</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Nesoulad URL a obsahu mate vyhledávače ohledně relevance a brání rankování na správná klíčová slova. Pro uživatele
+        hledajícího „orebro architecture" by stránka vyskočila ale byla irelevantní.
+      </p>
+      <p>
+        Vytvořte nové stránky se správnými slugy (<code>/projekty/trae/</code>, <code>/projekty/dom-v-zahrade/</code>,
+        <code>/projekty/centrum-valaliky/</code>), 301 přesměrujte staré URL na nové, aktualizujte interní odkazy. Tyto
+        nastavení jde provést ve Wordpressu u daných stránek.
+      </p>
+
+      <h3>1.3 Podstatné ale nefunkční stránky</h3>
+      <p>
+        <strong>/kontakt/</strong> vrací 404. Tato stránka byla odstraněna, ale zůstává indexovaná a pravděpodobně
+        odkazovaná z externích zdrojů. Kdokoli hledající „ROAR architekti kontakt" dostane 404.
+      </p>
+      <p>
+        <strong>/zasady-pouzivania-suborov-cookie/</strong> vrací chybu pluginu. Tato stránka cookie policy je odkazována
+        z Complianz banneru na každé stránce webu. Každý návštěvník vidí odkaz na nefunkční stránku.
+      </p>
+      <p>Pozn.: Pokud s cookies nějak nenakládáte (pokročilé funkce Google Analytics atd.), cookie banner vůbec nepotřebujete.</p>
+      <p>
+        <strong>Řešení:</strong> Buď obnovte <code>/kontakt/</code>, nebo ji přesměrujte na <code>/studio/</code>, kde nyní
+        žijí kontaktní informace. Pro cookie policy opravte Complianz plugin, znovu vytvořte stránku přes jeho wizard,
+        nebo se ho zbavte, pokud cookies nepotřebujete. V Google Search Console požádejte o odstranění indexace nefunkčních
+        stránek.
+      </p>
+
+      <h3>1.4 Překlep v obsahu</h3>
+      <p>Projektová stránka RUŽOVÁ DOLINA zobrazuje „ROK 2323" místo „2023". Detail.</p>
+
+      <hr />
+
+      <h2>2. SERP Metadata (Titles a descriptions)</h2>
+      <div class="image-item">
+        <p><em>Zobrazení v Chromu. Ukážeme si, jak texty upravit. Super business profil!</em></p>
+        <img src="images/roar-serp.png" alt="ROAR SERP screenshot">
+      </div>
+
+      <h3>Meta titles</h3>
+      <p>
+        Všechny stránky mají title vyplněný: „Název projektu • ROAR architekti". Titulek homepage je pouze „ROAR architekti"
+        bez popisného textu.
+      </p>
+      <p>
+        Titles jsou celkově minimální a generické – většina projektových stránek používá pouze název projektu plus značku,
+        chybí kontext jako typ projektu (rodinný dom, verejná stavba, interiér) nebo lokace. Tím dost omezujete záběr
+        klíčových slov, na která by se dalo rankovat.
+      </p>
+      <p>Meta titles se nastavují pro jednotlivé stránky skrz váš SEO plugin.</p>
+      <p><strong>Současné příklady a vylepšení:</strong></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Stránka</th>
+            <th>Současný titulek</th>
+            <th>Lepší titulek</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Homepage</td>
+            <td>ROAR architekti</td>
+            <td>ROAR architekti – architektonické štúdio Bratislava</td>
+          </tr>
+          <tr>
+            <td>SUNA</td>
+            <td>SUNA • ROAR architekti</td>
+            <td>SUNA – rodinný dom v Bratislave | ROAR architekti</td>
+          </tr>
+          <tr>
+            <td>GBC</td>
+            <td>GBC • ROAR architekti</td>
+            <td>GBC 5 – kancelárska budova Galvaniho | ROAR architekti</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Titulky jsou nejsilnější ranking a CTR signál. Generické titulky neodlišují projekty v SERPech a nepomáhají AI
+        systémům vyvodit tematickou relevanci, což je v jejich očích činí méně relevantními pro zobrazování v uživatelských
+        dotazech.
+      </p>
+
+      <h3>Meta descriptions</h3>
+      <p>
+        Na homepagi zcela chybí. Google se buď renderuje cookie popup text, nebo fragmenty jako menu, zápatí atd. Na
+        obsahových stránkách nejsou manuálně vyplněné.
+      </p>
+      <p>Toto snižuje ranking na klíčová slova, CTR, a web působí nedokončeně.</p>
+      <p>Možný meta description homepage:<br />ROAR architekti je architektonické štúdio v Bratislave. Navrhujeme rodinné domy, verejné stavby a interiéry s dôrazom na kontext a dlhodobú hodnotu.</p>
+      <p>
+        Napište meta popisy pro všechny hlavní stránky. Zaměřte se na to, o čem stránka je, proč na tom záleží a pro koho
+        je určena. 120–155 znaků. Nastavuje se také ve vašem SEO pluginu na daných stránkách.
+      </p>
+
+      <hr />
+
+      <h2>3. Struktura obsahu a sémantika</h2>
+      <div class="image-item">
+        <p><em>Jak na strukturu obsahu</em></p>
+        <img src="images/image.png" alt="SEO content structure diagram">
+      </div>
+
+      <h3>Použití H1</h3>
+      <p>
+        Každá stránka má H1. Projektové stránky používají název projektu, Studio používá „Studio" a tyto fungují dobře.
+        Homepage je ale jen „ROAR Architekti" bez popisného kontextu. Neexistuje žádný text vysvětlující, co ROAR je nebo
+        dělá.
+      </p>
+      <p>
+        H1 homepage by měl definovat entitu, ne jen opakovat branding. Např. „Architektonické štúdio ROAR architekti" nebo
+        „ROAR architekti – architektúra a interiéry".
+      </p>
+
+      <h3>Hierarchie nadpisů (H2–H4)</h3>
+      <p>
+        Stránka Studio správně používá H2 nadpisy k oddělení sekcí (Ľudia, Súťaže, Publikácie). Projektové stránky čistě
+        oddělují metadata a narativ. Žádné zjevné chyby v hierarchizaci.
+      </p>
+      <p>
+        Projektové stránky nicméně často spoléhají na seznamy a bloky metadat místo strukturovaných podnadpisů. Přidání H2
+        jako „Koncept", „Riešenie", „Kontext" (i když každá sekce má jen 2–3 věty) by zlepšilo čitelnost a pomohlo Googlu i
+        LLMs pochopit sekce obsahu. Při vytváření nového na to myslete.
+      </p>
+      <p>
+        Homepage nedává HTML téměř žádný crawlovatelný text – pouze logo, navigaci, kontaktní info v patičce a cookie
+        banner. Vizuální obsah (šest MP4 videí na pozadí) se není crawlovatelný textu, takže Google vidí vaší homepage jako
+        slabou stránku a používá jakýkoli text, který najde (uvedeno výše).
+      </p>
+      <p>
+        Přidejte 1–2 krátké odstavce vysvětlující, kdo jste, co navrhujete a kde působíte. Toto je kritické pro pozice, AI
+        shrnutí a lidské návštěvníky. Má to významný efekt a v kombinaci s vyplněnými meta popisky může významně pomoct
+        zvýšit vyhledatelnost.
+      </p>
+
+      <hr />
+
+      <h2>4. Indexovatelnost</h2>
+
+      <h3>Chybí sitemap</h3>
+      <p>
+        Na <code>/sitemap.xml</code> ani <code>/sitemap_index.xml</code> není sitemapa. Pokud existuje, není objevitelná na
+        standardních místech a není odkazována v robots.txt. Vytvořením a nahráním sitemapy do Search Console urychlíte a
+        usnadníte indexaci stránek Googlem, který ji využívá pro rychlé čtení webu.
+      </p>
+
+      <h3>Prázdné stránky kategorií</h3>
+      <p>
+        Stránky jako <code>/category/verejne-stavby/</code> neobsahují žádný obsah – pouze hlavičku, patičku a cookie
+        banner. Protože web používá Search &amp; Filter Pro pro kategorizaci projektů přes URL parametry, tyto WordPress
+        archívy kategorií neslouží žádnému účelu, ale jsou indexovány.
+      </p>
+      <p>
+        Stránky můžete v sitemapě nastavit jako <code>noindex</code>, přesměrovat je na <code>/projekty/</code>, nebo z nich
+        vytvořit pilířové stránky pro zachycení relevantního trafficu. Doporučuji poslední variantu.
+      </p>
+
+      <h3>Chybí alt texty obrázků</h3>
+      <div class="image-item">
+        <p><em>Obrázky se správně indexují – zvyšte jejich ranking</em></p>
+        <img src="images/roar-img-serp.png" alt="ROAR image search / SERP screenshot">
+      </div>
+      <p>
+        Obrázky používají správné <code>&lt;img&gt;</code> tagy s reálnými <code>src</code> URL. WordPress generuje správně
+        dimenzované náhledy. Nicméně alt atributy jsou všude prázdné. Pro vizální web se stovkami obrázků je to velká ztráta
+        rankování na image searchi na Googlu.
+      </p>
+      <p>
+        Doplňte alt texty k obrázkům na projektových stránkách, např. „Rodinný dom SUNA – pohľad z ulice" atp. Může dramaticky
+        pomoct zvýšit viditelnost v image search.
+      </p>
+
+      <hr />
+
+      <h2>5. Rychlost webu</h2>
+
+      <h3>Problém s načítáním na mobilu</h3>
+      <p>
+        Homepage se poměrně pomalu načítá na mobilních zařízeních kvůli videu, které je víceméně jediný obsah stránky. LCP na
+        mobilu je přibližně 5,7 sekundy – dobré by bylo dostat se pod 2.5s. Na desktopu toto ale nebyl problém.
+      </p>
+      <p>
+        Slabé mobilní LCP přímo ovlivňuje mobilní pozice, efektivitu crawlování (pomalé stránky jsou crawlovány méně často) a
+        to platí i pro AI.
+      </p>
+
+      <hr />
+
+      <h2>6. Strukturovaná data</h2>
+      <p>Žádná stránka neobsahuje strukturovaná data, která pomáhají jak vyhledávačům, tak AI systémům pochopit business entitu.</p>
+      <p><code>Organization/ArchitecturalFirm</code> na homepage nebo stránce Studio – vyřešit s vývojářem:</p>
+
+      <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "ArchitecturalFirm",
+  "name": "ROAR architekti",
+  "url": "https://roar.sk",
+  "description": "Architektonické štúdio v Bratislave",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Karadžičova 39",
+    "addressLocality": "Bratislava",
+    "postalCode": "811 07",
+    "addressCountry": "SK"
+  },
+  "telephone": "+421911767220",
+  "email": "roar@roar.sk",
+  "founder": [
+    {"@type": "Person", "name": "Michal Romanec"},
+    {"@type": "Person", "name": "Patrik Kuva"}
+  ],
+  "foundingDate": "2016",
+  "award": [
+    "1. miesto, Rekonštrukcia KC Hviezda (2022)",
+    "Nominácia CE.ZA.AR., GBC 5 (2022)"
+  ]
+}</code></pre>
+
+      <hr />
+
+      <h2>7. AI &amp; LLM objevitelnost</h2>
+
+      <h3>Silné stránky</h3>
+      <p>
+        Linky z architektonických portálů (Archinfo, Archiweb, EARCH.cz, YIMBA) AI systémy indexují a tím linky pomáhají AI
+        rankingu. Projektové stránky obsahují dobrý content pro LLM odpovědi. Business informace (adresa, telefon, IČO, DIČ)
+        jsou uvedeny na stránce Studio, což pomáhá AI získat kontext. Vítězství v soutěžích a ocenění jsou silné trust
+        signals.
+      </p>
+
+      <h3>Prostor ke zlepšení</h3>
+      <p>
+        Absence strukturovaných dat nutí AI parsovat nestrukturovaný text k pochopení webu – a může se splést. Homepage jasně
+        neuvádí, co firma dělá. Žádný FAQ nebo Q&amp;A obsah (LLMs preferují tento formát pro přímé odpovědi). Členové
+        týmu jsou uvedeni bez explicitních rolí, tzn. AI nemůže určit, kdo založil nebo vede studio.
+      </p>
+      <p>
+        <strong>Přidejte FAQs</strong> na běžné klientské otázky: Aké typy projektov navrhujete? Ako prebieha spolupráca? V
+        akých lokalitách pôsobíte? Koľko trvá návrh rodinného domu?... Formátujte jako jasné Q&amp;A páry. Tento obsah je
+        nejlepší způsob jak zachytit AI traffic, protože na uživatelské dotazy (které zachytíte) může dát přímo vaší odpověď.
+      </p>
+      <p>
+        <strong>Ujasněte obsah na stránce Studio.</strong> Ta uvádí čtyři jména pod „Ľudia" bez kontextu. AI pomůže další
+        kontext, např.: „ROAR architekti založili v roku 2016 Michal Romanec a Patrik Kuva v Bratislave." Můžou pomoci i
+        popisy rolí (Lead architect, Co-founder...). Pište v celých větách, které AI může extrahovat, ne jen seznamy.
+      </p>
+      <p>
+        <strong>Definujte studio na homepagi</strong>. I jediná věta: „ROAR architekti je progresívne architektonické štúdio
+        v Bratislave, ktoré navrhuje projekty od interiérov po urbanizmus." může dost pomoci – podobná situace jak bylo řešeno
+        výše. Text lze například vložit za video, ať se zachová stávající design, ale podchytí textové hodnoty pro
+        vyhledavače.
+      </p>
+
+      <hr />
+
+      <h2>8. Další zjištění</h2>
+
+      <h3>Social sharing obsah</h3>
+      <p>
+        Stránky nemají explicitní OG tagy. Když někdo sdílí projekt na sociálních sítích, náhled pravděpodobně zobrazuje logo
+        nebo žádný obrázek. Implementujte <code>og:title</code>, <code>og:description</code>, <code>og:image</code> pro všechny
+        stránky v SEO pluginu na daných stránkách – dost to pomáhá zvýšit lidské CTR a máte 100% kontrolu nad zobrazeným
+        obsahem na sociálních sítích.
+      </p>
+
+      <h3>Struktura URL blogu</h3>
+      <p>
+        Blogové příspěvky používají date-based URL strukturu (<code>/2025/04/15/post-name/</code>), což ředí keyword capture a
+        nepřináší moc relevantní informace pro Google a uživatele, a za nějaký čas budou stránky působit zastarale. Zvažte
+        <code>/blog/post-name/</code> pro stránky – jde nastavit přímo we Wordpressu v sekci permalinks. Bude potřeba ale brát v
+        potaz již indexované stránky a případně poladit přesměrovávání.
+      </p>
+
+      <h3>Interní prolinkování</h3>
+      <p>
+        Navigace je konzistentní napříč stránkami. Projektové stránky obsahují prev/next odkazy. Webu by pomohl cross-linking
+        mezi souvisejícími projekty podle kategorie. Jak již bylo zmíněno, každá stránka navíc odkazuje na nefunkční cookie
+        policy, což uměle zvyšuje počet rozbitých linků na webu – to je pro vyhledavače obvykle signál, že web je zastaralý a
+        nefunkční, opravou pluginu dokumentovanou výše to vyřešíte.
+      </p>
+
+      <hr />
+
+      <h2>Action steps priority</h2>
+      <ol>
+        <li><strong>Opravte cookie policy plugin</strong></li>
+        <li><strong>Opravte kontaktní stránku</strong> – přesměrování nebo skrýt v Search Console</li>
+        <li>
+          <strong>Přidejte meta popisky homepage a dalších stránek</strong> – v SEO pluginu, nahrát do Search Console.
+         Pro HP např.: „ROAR architekti je architektonické štúdio v Bratislave. Navrhujeme rodinné domy, verejné stavby a interiéry."
+        </li>
+        <li><strong>Implementujte 301 přesměrování pro stará URL</strong> nebo je skryjte v Google Search Console</li>
+        <li><strong>Přidejte alt text k obrázkům</strong> – klíčové pro image search, při nahrávání nových rovnou vyplňujte</li>
+        <li>
+          <strong>Opravte nesoulad URLs a obsahu</strong> pro každou ze tří dotčených stránek <code>orebro</code>, <code>int-suna-2</code>,
+          <code>int-ruzova-dolina</code> – upravte stránku ve WordPressu, nascrollujte k poli URL/Permalink pod titulkem a změňte slug tak, aby
+          odpovídal skutečnému názvu projektu
+        </li>
+        <li>
+          <strong>Přidejte FAQs</strong> – na existující stránky doplňte 3–5 běžných otázek a odpovědí. Pište v jasném Q&amp;A formátu. Klíčové
+          pro AI ranking
+        </li>
+        <li>
+          Na homepage <strong>přidejte 1–2 odstavce skutečného textu</strong> (ne jen ve videu nebo obrázku) popisující ROAR a co děláte. Lze
+          vložit za video – konzultujte s vývojářem
+        </li>
+        <li>
+          <strong>Doplňte org schéma</strong> – SEO plugin bude mít sekci Knowledge Graph, kde můžete nastavit název organizace, logo a sociální
+          profily
+        </li>
+        <li>
+          <strong>Vyřešte stránky archivů kategorií</strong> – přidejte obsah, nebo je skryjte – v SEO pluginu budete mít možnost vypnout jejich
+          indexaci, případně lze vyřešit v Search Console
+        </li>
+        <li>
+          <strong>Vytvořte sitemapu</strong> SEO pluginem a nahrajte ji do Google Search Console. Doporučuji provést po provedení základních oprav,
+          protože Google v tu chvíli web celý znovu zaindexuje
+        </li>
+        <li><strong>Zlepšení mobilního LCP na homepagi</strong> konzultujte s vývojářem</li>
+      </ol>
+
+      <h2>Závěr</h2>
+      <p>
+        Web má spoustu potenciálu ke zlepšení technické hygieny, metadat a rankování. Branding je silný a obsah kvalitní.
+        Jakmile zanesete vytyčené opravy, web má potencál se stát sales channelem se stovkami návštěv týdně.<br><br>Při optimizaci
+        obsahu na konkrétní cílové skupiny zvýšíte ranking na relevantní dotazy, budete víc vidět v AI výsledcích, a Google web
+        bude chápat a zobrazovat častěji a přesně tak, jak si přejete – to vše bez nutnosti web dramaticky předělávat.
+      </p>
+      </div>
+
+      <div style="text-align: center; margin-top: 50px; padding-top: 50px;">
+        <p><a href="https://kovarik.xyz">kovarik.xyz</a></p>
+      </div>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
+
