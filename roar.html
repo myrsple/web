@@ -63,6 +63,19 @@
         display: block;
       }
 
+      .image-toggle {
+        margin: 20px 0 30px;
+      }
+
+      .image-toggle summary {
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .image-toggle[open] summary {
+        margin-bottom: 10px;
+      }
+
       /* Match 100k: remove background gradients for this page */
       .floating-circles {
         display: none;
@@ -412,6 +425,34 @@
 
       <h2>7. AI &amp; LLM objevitelnost</h2>
 
+      <details class="image-toggle">
+        <summary>Zobrazení v AI výsledcích</summary>
+        <div class="image-item">
+          <p><em>ChatGPT Free</em></p>
+          <img src="images/roar-aeo-chatgpt-free.png" alt="ChatGPT Free output">
+        </div>
+        <div class="image-item">
+          <p><em>Perplexity Free</em></p>
+          <img src="images/roar-aeo-perplexity-free.png" alt="Perplexity Free output">
+        </div>
+        <div class="image-item">
+          <p><em>Gemini Pro</em></p>
+          <img src="images/roar-aeo-gemini-pro.png" alt="Gemini Pro output">
+        </div>
+        <div class="image-item">
+          <p><em>Claude Opus 4.5 Reasoning</em></p>
+          <img src="images/roar-aeo-claude-opus4.5-reasoning.png" alt="Claude Opus 4.5 Reasoning output">
+        </div>
+        <div class="image-item">
+          <p><em>ChatGPT 5.2 Reasoning</em></p>
+          <img src="images/roar-aeo-chatgpt-5.2-reasoning.png" alt="ChatGPT 5.2 Reasoning output">
+        </div>
+        <div class="image-item">
+          <p><em>ChatGPT 5.2 Reasoning vysvětlení</em></p>
+          <img src="images/roar-aeo-chatgpt-5.2-reasoning-explain.png" alt="ChatGPT 5.2 Reasoning Explain output">
+        </div>
+      </details>
+
       <h3>Silné stránky</h3>
       <p>
         Linky z architektonických portálů (Archinfo, Archiweb, EARCH.cz, YIMBA) AI systémy indexují a tím linky pomáhají AI
@@ -527,4 +568,3 @@
     <script src="javascripts/scale.fix.js"></script>
   </body>
 </html>
-
