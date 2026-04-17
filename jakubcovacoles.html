@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>SEO Audit – Jakubcová Coles Reality (jakubcovacoles.cz)</title>
+
+    <meta name="description" content="SEO audit pro Jakubcová Coles Reality (jakubcovacoles.cz): technické problémy, metadata, sémantika, indexovatelnost a doporučené akční kroky.">
+    <meta name="keywords" content="SEO audit, technické SEO, metadata, indexace, strukturovaná data, AI discoverability, Jakubcová Coles Reality, jakubcovacoles.cz">
+    <meta name="author" content="Tomas Kovarik">
+    <meta property="og:title" content="SEO Audit: Jakubcová Coles Reality (jakubcovacoles.cz)">
+    <meta property="og:description" content="Shrnutí zjištění a doporučených kroků pro zlepšení vyhledatelnosti webu Jakubcová Coles Reality (jakubcovacoles.cz).">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="images/profile.jpeg">
+    <meta name="robots" content="noindex, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="133124d4-8f66-4597-974e-6a4ad49366c3"></script>
+
+    <!-- Override layout to match other audit pages (no sidebar header, content-only page) -->
+    <style>
+      .wrapper {
+        width: 900px;
+        margin: 0 auto;
+      }
+
+      .content {
+        width: 100%;
+        padding: 50px 0;
+      }
+
+      @media print, screen and (max-width: 960px) {
+        .wrapper {
+          width: auto;
+          margin: 0;
+          padding: 0 20px;
+        }
+      }
+
+      @media print, screen and (max-width: 720px) {
+        .wrapper {
+          padding: 0 15px;
+        }
+      }
+
+      /* Page-local readability fixes for dark theme */
+      strong { color: #fff; font-weight: 600; }
+      th { color: #fff; }
+      th, td { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+      table { font-size: 13px; }
+
+      /* Consistent image spacing on this page */
+      .image-item {
+        margin: 30px 0;
+      }
+
+      .image-item img {
+        display: block;
+      }
+
+      /* Remove background gradients for this page */
+      .floating-circles {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-circles"></div>
+    <div class="wrapper">
+      <div class="content">
+
+        <h1>SEO Audit</h1>
+        <p><strong>Jakubcová Coles Reality – jakubcovacoles.cz</strong></p>
+        <div class="image-item">
+          <img src="images/jc.png" alt="Jakubcová Coles Reality logo">
+        </div>
+
+      <hr />
+
+      <h2>Intro</h2>
+      <p>
+        Web jakubcovacoles.cz technicky a částečně i obsahově funguje, ale má několik problémů, které jeho vyhledatelnost a kvalitu snižují. Jde o duplicitní a stará URL z vývoje webu, generické tagy, obsahově slabou homepage, a absenci strukturovaných data pro lokální realitní entitu.
+      </p>
+
+      <hr />
+
+      <h2>1. Základní technické problémy</h2>
+
+      <h3>1.1 Duplicitní a legacy URL ředí autoritu</h3>
+      <p>
+        Web nese stopy několika fází vývoje a v navigaci i interním linkování zůstaly staré URLs, které se obsahově překrývají s novějšími stránkami:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>URL</th>
+            <th>Stav</th>
+            <th>Cílové řešení</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/about-5</code> („Osobní sdělení")</td>
+            <td>Samostatná stránka v navigaci, obsahově se překrývá s O nás</td>
+            <td>Konsolidovat do <code>/onas</code> a stránku skrýt na Google Search Console</td>
+          </tr>
+          <tr>
+            <td><code>/about-1</code></td>
+            <td>Mix „O nás", osobního sdělení a týmové sekce</td>
+            <td>Konsolidovat do <code>/onas</code> a skrýt na Google Search Console</td>
+          </tr>
+          <tr>
+            <td><code>/webinar-registration</code></td>
+            <td>Starý slug, který teď přesměrovává na <code>/specialistenasidliste</code></td>
+            <td>V interních odkazech nahradit finální URL</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        V blogovém článku o prodeji bytu na sídlišti vede interní odkaz přes <code>/webinar-registration</code> a odkazuje na <code>/about-1</code>. Tato struktura mate crawlery i uživatele, tříští signály mezi duplicitními stránkami a zbytečně rozmělňuje relevanci.
+      </p>
+      <p>
+        <strong>Řešení:</strong> rozhodnout, která URL je kanonická pro „O nás" a která pro „Co pro vás uděláme / Specialisté na sídliště". Staré stránky přesměrovat na skutečné cíle a skrýt v Google Search Console, odstranit z navigace a v blogu přepsat interní odkazy tak, aby vedly na správnou stránku.
+      </p>
+
+      <h3>1.2 Explicitní AI obrázky</h3>
+      <p>
+        Na homepage a dalších klíčových stránkách jsou použité obrázky s názvy souborů typu <code>Gemini_Generated...</code> a <code>ChatGPT Image...</code>. Pro vyhledavače je to signál AI generovaného obsahu (= snížení autority a tím vyhledatelnosti); podlamuje to narativ copy webu, která klade důraz na autenticitu a osobní přístup. Některé obrázky jsou ostatentativně AI-generated (sekce Jsme rodina na stránce O nás), kde kontast s textem napravo je opravdu výrazný. Stejní lidé na různých imgs vypadají úplně jinak, což trochu působí, že jsou všichni smyšlení.
+      </p>
+      <p>
+        <strong>Řešení:</strong> v první řadě přejmenovat soubory, poté nahradit vizuály reálnými fotkami týmu, kanceláře, bytů...
+      </p>
+
+      <hr />
+
+      <h2>2. SERP Metadata</h2>
+      <p>
+        Title tagy hlavních stránek jsou generické a nezachycují klíčová slova pro zvýšení vyhledatelnosti:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Stránka</th>
+            <th>Současný title</th>
+            <th>Lepší title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Homepage</td>
+            <td>Jakubcová Coles Reality | Byty na sídlišti | Praha</td>
+            <td>Specialisté na pražská sídliště | Jakubcová Coles Reality</td>
+          </tr>
+          <tr>
+            <td>O nás</td>
+            <td>O nás | Jakubcová Coles Reality</td>
+            <td>Rodinná realitka v Praze od 1992 | Jakubcová Coles Reality</td>
+          </tr>
+          <tr>
+            <td>FAQ</td>
+            <td>FAQ | Jakubcová Coles Reality</td>
+            <td>FAQ – prodej bytu na sídlišti | Jakubcová Coles Reality</td>
+          </tr>
+          <tr>
+            <td>Kontakt</td>
+            <td>Kontakt | Jakubcová Coles Reality</td>
+            <td>Kontakt – Praha 3, Korunní | Jakubcová Coles Reality</td>
+          </tr>
+          <tr>
+            <td>Co pro vás uděláme</td>
+            <td>Co pro vás uděláme – Jakubcová Coles Reality</td>
+            <td>Prodej bytu krok za krokem | Jakubcová Coles Reality</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Crawlery titles přikládají velkou váhu. Proto v nich chcete zachytit nejrelevantnější klíčová slova a využít jejich maximání délky před zkrácením na SERPu. Současné verze stránky příliš nerozlišují, a neposkytují příliš kontextu.
+      </p>
+
+      <h3>Meta popisky</h3>
+      <p>
+        Na hlavních stránkách jsou meta popisky buď zcela prázdné, nebo Google bere úryvky z náhodných bloků – z patičky, z formuláře, z widgetu „Nejnovější příspěvky" nebo komentářové sekce pod článkem. Klíčové řešit u homepage a pilířových obsahových stránek.
+      </p>
+      <p>
+        <strong>Řešení:</strong> ručně vyplnit meta descriptions pro všechny klíčové stránky a top články. Délka 120–155 znaků, zaměřit na to, o čem stránka je a pro koho. Nevyplácí se dělat s AI (max na editaci), protože ze stejných důvodů jako výše vyhledavače penalizují autoritu zjevně AI-generated webů.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Stránka</th>
+            <th>Meta description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Homepage</td>
+            <td>Rodinná realitní kancelář specializovaná na prodej bytů na pražských sídlištích. Tradice od roku 1992, bezpečný prodej a maximalizace ceny.</td>
+          </tr>
+          <tr>
+            <td>O nás</td>
+            <td>Rodinná realitní kancelář se sídlem v Praze 3. Od roku 1992 pomáháme majitelům bezpečně prodat byt na pražském sídlišti za nejlepší možnou cenu.</td>
+          </tr>
+          <tr>
+            <td>FAQ</td>
+            <td>Odpovědi na nejčastější otázky k prodeji bytu na sídlišti v Praze – od přípravy podkladů přes fond oprav po právní servis.</td>
+          </tr>
+          <tr>
+            <td>Kontakt</td>
+            <td>Kontakt na realitní kancelář Jakubcová Coles Reality, Korunní, Praha 3. Rodinná firma s tradicí od roku 1992. Zavolejte, napište, nebo se zastavte.</td>
+          </tr>
+          <tr>
+            <td>Co pro vás uděláme</td>
+            <td>Projdeme s vámi celý prodej krok za krokem – ocenění, příprava bytu, marketing, prohlídky, smlouvy a právní servis. Specialisté na pražská sídliště.</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+
+      <h2>3. Struktura obsahu a sémantika</h2>
+
+      <h3>Obsah homepage</h3>
+      <p>
+        Domovská stránka obsahuje claim, základní info a contact form. Pro člověka, který vás zná a ví, co od vás chce, to stačí. Pro nové uživatele, vyhledávače a LLMs to není dost textu. Velkou část zabírá obrázek, formulář a formulář, takže sice pocitově je stránka plná, ale textu je na ní minimum.
+      </p>
+      <p>
+        <strong>Řešení:</strong> doplnit jasný odstavec, který jednou větou zodpoví: kdo jste, kde působíte, na co se specializujete a pro koho. Například:
+      </p>
+      <p>
+        Pod tím ideálně tři krátké bloky, které to rozvedou: lokality, kde působíte, jak probíhá spolupráce krok po kroku a proč vám věřit. To pomáhá jak uživatelům, tak Googlu a LLMs pochopit co děláte a jak o vás mluvit.
+      </p>
+
+      <h3>FAQ táhne celý web</h3>
+      <p>
+        FAQ stránka správně zodpovídá jednoduché uživatelské dotazy a jde napřed Googlu a LLMs.
+      </p>
+      <p>
+        Můžete rozvinout o další long-tail a prolinkovat ji s ostatními stránkami a relevantními články.
+      </p>
+
+      <hr />
+
+      <h2>4. Indexovatelnost</h2>
+      <p>
+        Zkontrolujte, že se správně indexují všechny stránky tak, jak chcete.
+      </p>
+      <ol>
+        <li>V Google Search Console  <code>Pages → Indexing</code> zkontrolujte, kolik URL je skutečně indexovaných, které jsou ve stavu „Crawled – currently not indexed" nebo „Duplicate without user-selected canonical" a proč.</li>
+        <li>Ověřte, že sitemap na <code>/sitemap.xml</code> je aktuální (Wix ji generuje automaticky) a že je v GSC nahlášená.</li>
+        <li>Po provedení URL konsolidace z bodu 1.1 v GSC celý web znovu nechte zaindexovat (nahráním sitemapy nebo manuálně přes URL inspector).</li>
+      </ol>
+      <hr />
+
+      <h2>5. AI &amp; LLM objevitelnost</h2>
+      <p>
+        Obsahově nejvíc pomáhá FAQ, blogové články a positioning. LLMs to jde ale ještě víc usnadnit.
+      </p>
+
+      <h3>Silné stránky</h3>
+      <ul>
+        <li>FAQ stránka s jasnými Q&amp;A páry – přesně to, co AI systémy preferují pro přímé odpovědi.</li>
+        <li>Blogové články o prodeji, SVJ, fondu oprav – autoritativní ve vaší nice. Jen obsahují explicitně AI obrázky.</li>
+        <li>Jasná specializace a entita; AI systémy tohle umí zachytit, pokud je to napsané v čistých větách.</li>
+      </ul>
+
+      <h3>Prostor ke zlepšení</h3>
+      <ul>
+        <li>Na homepage chybí jediná věta, která by jednoznačně definovala, co firma dělá a kde. Nutíte AI (potažmo i Google) víc přemýšlet, za což se vám na vyhledatelnosti neodmění.</li>
+        <li>Chybí strukturovaná JSON-LD data, která by AI řekla „tohle je realitní kancelář v Praze 3".</li>
+        <li>Členové týmu a role jsou uvedené bez explicitního kontextu – AI nedokáže určit, kdo firmu vede, kdo je realitní makléř, kdo řeší právní servis...</li>
+      </ul>
+
+      <h3>Konkrétní kroky</h3>
+      <ol>
+        <li><strong>Rozšířit FAQ</strong> o dalších 5–10 dotazů, které pokryjí typický cyklus před prodejem („Kdy je nejlepší čas prodávat?", „Jak dlouho trvá prodej bytu na sídlišti?", „Co když mám hypotéku?", „Kolik stojí služby realitní kanceláře?").</li>
+        <li><strong>Na homepage a stránce O nás</strong> psát v celých větách: „Jakubcová Coles Reality je rodinná realitní kancelář v Praze 3. Od roku 1992 se specializujeme na prodej bytů na pražských sídlištích." AI systémy tohle extrahují doslova.</li>
+        <li><strong>U týmu uvést role</strong> – kdo je jednatel, kdo makléř, kdo má na starosti právní servis a financování. Celé věty, ne jen jména pod AI fotkami.</li>
+        <li><strong>Budovat brand mentions</strong> na realitních portálech, v regionálních médiích a na odborných platformách. V AI vyhledávání dramaticky pomáhají – LLMs autoritativnost vašeho webu posuzují i podle zmínek na agregačních webech vaší industry.</li>
+      </ol>
+
+      <hr />
+
+      <h2>6. Další zjištění</h2>
+
+      <h3>Blog – struktura a interní prolinkování</h3>
+      <p>
+        Blog vám už ve vyhledatelnosti pomáhá. Může ještě víc když:
+      </p>
+      <ul>
+        <li>V každém článku doplníte jasný úvodní odstavec (150–200 znaků), aby se zafixoval kvalitní snippet. Stejně jako lidé roboti nečtou daleko.</li>
+        <li>Kategorizujete články do 3–4 skupin (např. Prodej bytu, SVJ a fond oprav, Lokality Praha, Právní servis...) a strategicky prolinkovat.</li>
+        <li>V rámci článků nalinkujete <code>/faq</code> a kontakt, ne zpátky na starou URL přes <code>/webinar-registration</code>.</li>
+      </ul>
+
+      <h3>Obrázky a alt texty</h3>
+      <p>
+        Alt texty i názvy souborů crawlerům a LLMs říkají, co na obrázku je – defaultně si je "neprohlíží". U každého obrázku doplňte alt text stručným (5-8 slov) popiskem, co na něm je, a dejte jim reprezentativní názvy. Budou pak dramaticky lépe rankovat v Google Image Search.
+      </p>
+
+      <h3>Social sharing (OG tagy)</h3>
+      <p>
+        Ověřte ve Wixu, že každá stránka má vyplněný <code>og:title</code>, <code>og:description</code> a <code>og:image</code>. Pokud je og:image jen logo, návštěvník při sdílení dostane fádní náhled – lepší je nastavit konkrétní obrázek relevantní k obsahu stránky.
+      </p>
+
+      <h3>Chybný link v mailto na stránce Kontakt</h3>
+      <p>
+        mailto: url na stránce kontakt obsahuje překlep – "info@jakucovacoles.cz"
+      </p>
+
+      <hr />
+
+      <h2>7. Vizuální prezentace a UX (homepage)</h2>
+      <p>
+        Homepage je šablonovitá a nepomáhá vám prodat narativ „rodinná realitní kancelář s tradicí od roku 1992".
+      </p>
+      <p>
+        Navigace se láme na dva řádky. „Odhad nemovitosti zdarma" odskakuje pod hlavní menu. Stačilo by zlepšit responzivitu designu – níže přiložený screenshot je z 1920x1080 monitoru, kde je layout zřejmě stejný, jako na laptopu / tabletu. Web by se měl umět přizpůsobit volnému prostoru. Kvůli druhému řádku v menu navíc logo vypadá špatně zarovnané (vertikálně je zarovnané proti prvnímu řádku, ale při dvou řádcích to aktuální nastavení nekompenzuje).
+      </p>
+      <div class="image-item">
+        <img src="images/jc2.png" alt="Jakubcová Coles Reality logo">
+      </div>
+      <p>
+        Dvě konkurenční CTA v hero sekci (Osobní sdělení a Odhad nemovitosti zdarma) tříští pozornost. Jedno je obsahová stránka, kterou by bylo vhodné spojit s O nás a jako jediné CTA ponechat Odhad zdarma, protože je to vaše vaše primární konverze. Teď uživatel neví na co kliknout, takže spíš neklikne na nic.
+      </p>
+      <p>
+        Generické fráze jako „kvalitní servis", „spokojený klient" a „jednáme férově" neprodávají. První odstavec uživatele buď přesvědčí, nebo odradí, a je nutné budovat důvěru krok za krokem od srozumitelného menu přes strategicky rozmístěné trust signals tak, aby vyplnění kontaktního formuláře bylo logickým vyústěním uživatelské zkušenosti. Využijte skutečné tváře týmu, co nejvíce reálných referencí, a čísla – počet prodejů, hodnocení, data. Narativ, že firma existuje od r. 1992 a přitom nemá jediné logo nebo case study, pracuje proti vám.
+      </p>
+      <p>
+        Barvy webu se tlučou a nedrží jednotnou linku vizuální komunikace, a to samé fonty. Celkový dojem je, že hodnotově nabízíte víc, než vizuálně komunikujete. Redesign nemusí být radikální; už úpravou hierarchie CTA, vyladěním vizuální komunikace sjednocením typografie, a doplněním trust signálů (tváře, reference, čísla) se dá hodně zlepšit s malým úsilím. 
+      </p>
+
+      <hr />
+
+      <h2>Action steps priority</h2>
+      <ol>
+        <li>Přepsat title tagy na homepage, O nás, FAQ, Kontaktu a stránce Co pro vás uděláme podle návrhů v sekci 2.</li>
+        <li>Doplnit meta descriptions pro všechny hlavní stránky a top 5 blogových článků.</li>
+        <li>Obsahově obohatit homepage dle uvedených poznámek.</li>
+        <li>Opravit odkazy z blogu tak, aby nevedly přes <code>/webinar-registration</code> a <code>/about-1</code>.</li>
+        <li>Konsolidovat <code>/about-1</code> a <code>/about-5</code> do jedné kanonické stránky O nás a nastavit 301 přesměrování v Wix URL Redirect Manageru.</li>
+        <li>Nasadit <code>RealEstateAgent</code> a <code>FAQPage</code> schema na relevantní stránky.</li>
+        <li>Projít v Google Search Console <code>Pages</code> report, potvrdit počty indexovaných URL a vyčistit případné duplicity.</li>
+        <li>Rozšířit FAQ o dalších 5–10 dotazů pokrývajících celý cyklus prodeje.</li>
+        <li>Nahradit AI generované vizuály reálnými fotkami týmu, kanceláře a referenčních bytů.</li>
+        <li>Doplnit alt texty k obrázkům – při nahrávání nových rovnou vyplňovat.</li>
+        <li>Rozvíjet blog kolem clusterů (sídliště, SVJ, fond oprav, lokality Praha) a budovat interní prolinkování mezi články.</li>
+        <li>Aktivně pracovat na brand mentions v realitních médiích a na odborných portálech – klíčové pro AI viditelnost.</li>
+      </ol>
+
+      <hr />
+
+      <h2>Závěr</h2>
+      <p>
+        Web má funkční základy – jasný positioning, relevantní FAQ a blog, který odpovídá na reálné dotazy. Hlavní prostor k růstu je v technické hygieně: konsolidovat staré URL, přepsat titulky a meta descriptions, obohatit homepage a sjednotit vizuální komunikaci. Jak lidé, tak stroje pak web lépe pochopí, což se navzájem posiluje v častějším zobrazováním ve výsledcích Google a AI odpovědí, a ve výsledku vede k výšší konverzi.
+      </p>
+      <hr />
+      <p>
+        V případě jakýchkoliv dotazů se mi neváhejte ozvat na tomas@kovarik.xyz. Můžu vám pomoct klíčové body z auditu napravit a v případě zájmu zajistit i komplexní webdesignové služby – reference najdete na <a href="https://kovarik.xyz">mém portfoliu</a> a na <a href="https://wickednice.xyz">wickednice.xyz</a>.
+      </p>
+      </div>
+
+      <div style="text-align: center; margin-top: 50px; padding-top: 50px;">
+        <p><a href="https://kovarik.xyz">kovarik.xyz</a></p>
+      </div>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
