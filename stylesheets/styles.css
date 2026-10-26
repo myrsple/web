@@ -166,6 +166,208 @@ section {
   position: relative;
 }
 
+main {
+  width: 500px;
+  float: right;
+  padding-bottom: 50px;
+  position: relative;
+}
+
+.projects-page {
+  width: 1010px;
+}
+
+.projects-page main {
+  width: 650px;
+}
+
+.projects-intro {
+  margin: 35px 0 50px;
+}
+
+.projects-intro h2 {
+  margin-bottom: 15px;
+}
+
+.project-entry {
+  padding-bottom: 42px;
+  margin-bottom: 42px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.project-entry h3 {
+  margin-bottom: 14px;
+}
+
+.project-entry ul {
+  padding-left: 20px;
+}
+
+.project-entry li {
+  margin-bottom: 5px;
+}
+
+.project-context h4 {
+  margin: 18px 0 7px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.project-context ul {
+  margin-bottom: 0;
+}
+
+.project-media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 25px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
+}
+
+.project-media img,
+.project-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.project-gallery-trigger[role="button"] {
+  cursor: zoom-in;
+}
+
+.project-gallery-trigger[role="button"]:focus-visible,
+.project-gallery-expand:focus-visible,
+.project-gallery-dialog button:focus-visible {
+  outline: 2px solid #7CB3FF;
+  outline-offset: 3px;
+}
+
+.project-video-frame {
+  position: relative;
+  min-width: 0;
+}
+
+.project-gallery-expand {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(17, 17, 17, 0.82);
+  cursor: zoom-in;
+  font: inherit;
+}
+
+.project-media > :only-child,
+.project-media-wide {
+  grid-column: 1 / -1;
+}
+
+.lazy-project-video {
+  max-height: 75vh;
+}
+
+.project-gallery-dialog {
+  width: fit-content;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  color: #b7b7b7;
+  background: transparent;
+}
+
+.project-gallery-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.project-gallery-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px minmax(0, max-content) 42px;
+  align-items: center;
+  max-width: calc(100vw - 32px);
+  padding: 46px 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: #111;
+}
+
+.project-gallery-stage {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.project-gallery-stage img,
+.project-gallery-stage video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 136px);
+  max-height: calc(100vh - 140px);
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.project-gallery-close,
+.project-gallery-nav {
+  border: 0;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.project-gallery-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  padding: 2px 7px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.project-gallery-nav {
+  padding: 15px 8px;
+  font-size: 22px;
+}
+
+.project-gallery-prev {
+  grid-column: 1;
+}
+
+.project-gallery-next {
+  grid-column: 3;
+}
+
+.project-gallery-nav[hidden] {
+  visibility: hidden;
+}
+
+.project-gallery-caption {
+  grid-column: 1 / -1;
+  margin: 10px 42px 0;
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+}
+
+.projects-outro {
+  margin-bottom: 20px;
+}
+
 small {
   font-size: 11px;
 }
@@ -191,9 +393,13 @@ footer {
     margin: 0;
   }
 
-  header, section, footer {
+  header, section, main, footer {
     float: none;
     position: static;
+    width: auto;
+  }
+
+  .projects-page main {
     width: auto;
   }
 
@@ -201,7 +407,7 @@ footer {
     padding-right: 320px;
   }
 
-  section {
+  section, main {
     border: 1px solid #e5e5e5;
     border-width: 1px 0;
     padding: 20px 0;
@@ -210,6 +416,16 @@ footer {
 
   header a small {
     display: inline;
+  }
+}
+
+@media screen and (min-width: 961px) and (max-width: 1109px) {
+  .projects-page {
+    width: 860px;
+  }
+
+  .projects-page main {
+    width: 500px;
   }
 }
 
@@ -230,6 +446,24 @@ footer {
 @media print, screen and (max-width: 480px) {
   body {
     padding: 15px;
+  }
+
+  .project-media {
+    grid-template-columns: 1fr;
+  }
+
+  .project-gallery-shell {
+    grid-template-columns: 30px minmax(0, max-content) 30px;
+  }
+
+  .project-gallery-stage img,
+  .project-gallery-stage video {
+    max-width: calc(100vw - 96px);
+  }
+
+  .project-gallery-caption {
+    margin-right: 30px;
+    margin-left: 30px;
   }
 }
 
